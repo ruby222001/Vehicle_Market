@@ -4,10 +4,27 @@ import 'package:project/componets/filter.dart';
 class MySliverAppBar extends StatelessWidget {
   final Widget child;
   final Widget title;
-  const MySliverAppBar({super.key,
-  required this.child,
-  required this.title,
-  });
+  final void Function(FilterOptions) onApplyFilters;
+
+  const MySliverAppBar({
+    Key? key,
+    required this.child,
+    required this.title,
+    required this.onApplyFilters,
+  }) : super(key: key);
+
+  void _showFilterDrawer(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext builderContext) {
+        return FilterDrawer(
+          onApplyFilters: (filters) {
+            onApplyFilters(filters);
+          },
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,30 +32,20 @@ class MySliverAppBar extends StatelessWidget {
       expandedHeight: 320,
       collapsedHeight: 120,
       floating: false,
-      pinned :true,
-      actions:[
-        IconButton(onPressed: (){
-                      _showFilterDrawer(context);
-
-        },
-        
-         icon: const Icon(Icons.filter),
-         ),
+      pinned: true,
+      actions: [
+        IconButton(
+          onPressed: () {
+            _showFilterDrawer(context);
+          },
+          icon: const Icon(Icons.filter),
+        ),
       ],
-
       title: const Text("vehicle"),
       flexibleSpace: FlexibleSpaceBar(
         background: child,
-        title:title,
+        title: title,
       ),
     );
   }
 }
- void _showFilterDrawer(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext builderContext) {
-        return const FilterDrawer();
-      },
-    );
-  }
