@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:project/componets/drawer_list.dart';
+import 'package:project/components/drawer_list.dart';
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key});
+      final void Function()? onSignout;
+
+  const MyDrawer({super.key,
+    required this.onSignout,
+});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +30,8 @@ class MyDrawer extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 25.0),
           child: MyListTile(
             text: 'L O G O U T',
-            icon: Icons.exit_to_app,
-            onTap: (){},
+            icon: Icons.logout,
+            onTap: onSignout,
           ),
         ),
       ],

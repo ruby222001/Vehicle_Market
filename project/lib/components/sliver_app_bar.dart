@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/componets/filter.dart';
+import 'package:project/components/filter.dart';
 
 class MySliverAppBar extends StatelessWidget {
   final Widget child;

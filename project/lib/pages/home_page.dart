@@ -1,13 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:project/componets/bottom_navigator_bar.dart';
-import 'package:project/componets/drawer.dart';
-import 'package:project/componets/filter.dart';
-import 'package:project/componets/sliver_app_bar.dart';
-import 'package:project/componets/searchfield.dart';
+import 'package:project/components/filter.dart';
+import 'package:project/components/sliver_app_bar.dart';
+import 'package:project/components/bottom_navigator_bar.dart';
+import 'package:project/components/drawer.dart';
+
+import 'package:project/components/searchfield.dart';
 import 'package:project/models/productdetails.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
+   
 
   List<Vehicle> vehicles = [
     Vehicle(
@@ -94,6 +97,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+   final currentUser = FirebaseAuth.instance.currentUser!;
+
+
+    void signOut() {
+    FirebaseAuth.instance.signOut();
+  }
+
   List<Vehicle> displayedVehicles = [];
 
   @override
@@ -134,7 +144,10 @@ if (filters.selectedCondition != 'Any') {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const MyDrawer(),
+      drawer:  MyDrawer(
+           onSignout: signOut,
+
+      ),
       bottomNavigationBar: const BottomNavigator(),
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
