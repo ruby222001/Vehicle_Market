@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:project/auth/auth.dart';
 import 'package:project/firebase_options.dart';
+import 'package:project/pages/home_page.dart';
 
 
 import 'package:project/pages/login_page.dart';
@@ -24,12 +25,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
                 debugShowCheckedModeBanner: false,
  
-      title: 'Flutter Demo',
+      title: 'Vehicle',
       theme: ThemeData.dark(),
             home: const Authpage(),
 routes: {
         '/login_page': (context) =>  const LoginPage(),
         '/register_page': (context) => const RegisterPage(),
+                '/homepage': (context) =>  HomePage(),
+
 }
     );
       }

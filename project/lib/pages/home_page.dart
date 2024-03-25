@@ -179,18 +179,23 @@ if (filters.selectedCondition != 'Any') {
           children: [
             /// Filter IconButton
             Expanded(
-              child: ListView.builder(
-                itemCount: displayedVehicles.length,
-                itemBuilder: (context, index) {
-                  final vehicle = displayedVehicles[index];
-                  return ListTile(
-                    title: Text(vehicle.brand),
-                    subtitle: Text(
-                      'Year: ${vehicle.vdate}, Price: \$${vehicle.price}, Type: ${_getType(vehicle.wheelerType)}',
-                    ),
-                    // You can add more widgets here to display additional info about the vehicle
-                  );
-                },
+              child: Container(
+                decoration: BoxDecoration(
+                  
+                ),
+                child: ListView.builder(
+                  itemCount: displayedVehicles.length,
+                  itemBuilder: (context, index) {
+                    final vehicle = displayedVehicles[index];
+                    return ListTile(
+                      title: Text(vehicle.brand),
+                      subtitle: Text(
+                        'Year: ${vehicle.vdate}, Price: \$${vehicle.price}, Type: ${_getType(vehicle.wheelerType)}',
+                      ),
+                      // You can add more widgets here to display additional info about the vehicle
+                    );
+                  },
+                ),
               ),
             ),
           ],
