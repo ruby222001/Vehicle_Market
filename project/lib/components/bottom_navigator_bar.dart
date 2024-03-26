@@ -35,7 +35,7 @@ class _BottomNavigatorState extends State<BottomNavigator> {
       if (_selectedIndex == 2) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => ImageUp()),
+        MaterialPageRoute(builder: (context) => const ImageUp()),
       );
     }
      if (_selectedIndex == 3) {

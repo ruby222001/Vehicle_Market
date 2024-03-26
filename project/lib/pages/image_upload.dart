@@ -71,15 +71,15 @@ class _ImageUpState extends State<ImageUp> {
             ),
           ElevatedButton(
             onPressed: selectFile,
-            child: Text('Select File'),
+            child: const Text('Select File'),
           ),
           ElevatedButton(
             onPressed: uploadFile,
-            child: Text('Upload File'),
+            child: const Text('Upload File'),
           ),
           ElevatedButton(
-            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> FillDetails())),
-            child: Text('Next'),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> const FillDetails())),
+            child: const Text('Next'),
           ),
           buildProgress(),
         ],
@@ -109,7 +109,7 @@ class _ImageUpState extends State<ImageUp> {
                         Center(
                           child: Text(
                             '${(progress * 100).round()}%',
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                           ),
                         ),
                       ],

@@ -1,13 +1,16 @@
 class Vehicle{
+  final String image;
   final String brand;
   final double price;
   final int vdate;
   final String condition;
   final String negotiable;
+  
   final WheelerType wheelerType;
   
 
   Vehicle({
+    required this.image,
     required this.price,
     required this.vdate, 
     required this.brand,

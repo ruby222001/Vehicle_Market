@@ -10,17 +10,18 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: const Text('Profile'),
       ),
             bottomNavigationBar: const BottomNavigator(),
 
       body: Center(
         child:           Row(
           children: [
+            Text(currentUser.displayName ?? '',
+            textAlign: TextAlign.center,style: TextStyle(color: Colors.grey[700])),
                          Text(currentUser.email!,textAlign: TextAlign.center,style: TextStyle(color: Colors.grey[700]),),
 
           
-            Text(currentUser.email!,textAlign: TextAlign.center,style: TextStyle(color: Colors.grey[700]),),
 
           
           ],
