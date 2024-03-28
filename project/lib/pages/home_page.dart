@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:project/components/filter.dart';
+import 'package:project/components/like_button.dart';
 import 'package:project/components/sliver_app_bar.dart';
 import 'package:project/components/bottom_navigator_bar.dart';
 import 'package:project/components/drawer.dart';
@@ -121,6 +122,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final currentUser = FirebaseAuth.instance.currentUser!;
 
+bool isLiked = false;
   void signOut() {
     FirebaseAuth.instance.signOut();
   }
@@ -234,14 +236,17 @@ class _HomePageState extends State<HomePage> {
                                       ))),
                             );
                           },
+                        
                           child: ListTile(
                             leading: Image.asset(vehicle.image),
                             title: Text(vehicle.brand),
                             subtitle: Text(
-    'Year: ${vehicle.vdate}\nPrice: \$${vehicle.price}\nType: ${_getType(vehicle.wheelerType)}',
+    'Year: ${vehicle.vdate}\nPrice: Rs ${vehicle.price}\nType: ${_getType(vehicle.wheelerType)}',
                             ),
+                            trailing: LikeButton(isLiked: true, onTap: (){})
                             // You can add more widgets here to display additional info about the vehicle
                           ),
+                          
                         ),
                       ),
                     );

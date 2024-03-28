@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:project/pages/filldetails.dart';
 import 'package:project/pages/home_page.dart';
-import 'package:project/pages/image_upload.dart';
 import 'package:project/pages/noti_page.dart';
 import 'package:project/pages/profile_page.dart';
 
@@ -35,7 +35,7 @@ class _BottomNavigatorState extends State<BottomNavigator> {
       if (_selectedIndex == 2) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const ImageUp()),
+        MaterialPageRoute(builder: (context) =>  FillDetails()),
       );
     }
      if (_selectedIndex == 3) {
@@ -51,11 +51,6 @@ class _BottomNavigatorState extends State<BottomNavigator> {
    
 
 
-final List _pages =[
-HomePage(),
- ProfilePage(),
- NotificationPage(),
-];
 
 
   @override

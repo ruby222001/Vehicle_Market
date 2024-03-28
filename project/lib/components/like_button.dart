@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class LikeButton extends StatelessWidget {
-  final bool wishlist;
+  final bool isLiked;
 void Function()? onTap;
   LikeButton({super.key,
-   required this.wishlist,
+   required this.isLiked,
    required this.onTap,});
   
 
@@ -13,8 +13,8 @@ void Function()? onTap;
     return GestureDetector(
       onTap: onTap,
       child : Icon(
-        wishlist ? Icons.favorite : Icons.favorite_border,
-        color: wishlist ?Colors.red: Colors.grey,
+        isLiked ? Icons.favorite : Icons.favorite_border,
+        color: isLiked ?Colors.red: Colors.grey,
       ),
     );
   }

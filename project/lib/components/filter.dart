@@ -17,8 +17,8 @@ class _FilterDrawerState extends State<FilterDrawer> {
    String selectedcondition = 'Any';
       String selectednegotiable = 'Any';
 
-  List<String> Conditiondrop = ['Any', 'Brand New','Like New','Used'];
-    List<String> Negotiabledrop = ['Any', 'Yes','Fixed Price'];
+  List<String> conditiondrop = ['Any', 'Brand New','Like New','Used'];
+    List<String> negotiabledrop = ['Any', 'Yes','Fixed Price'];
 
 
   @override
@@ -55,7 +55,7 @@ Container(
         selectedcondition = newValue!;
       });
     },
-    items: Conditiondrop.map<DropdownMenuItem<String>>(
+    items: conditiondrop.map<DropdownMenuItem<String>>(
       (String value) {
         return DropdownMenuItem<String>(
           value: value,
@@ -86,7 +86,7 @@ Container(
         selectednegotiable = newValue!;
       });
     },
-    items: Negotiabledrop.map<DropdownMenuItem<String>>(
+    items: negotiabledrop.map<DropdownMenuItem<String>>(
       (String value) {
         return DropdownMenuItem<String>(
           value: value,

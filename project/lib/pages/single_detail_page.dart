@@ -27,7 +27,7 @@ class SinglePage extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text('Year: ${vehicle.vdate}'),
-            Text('Price: \$${vehicle.price}'),
+            Text('Price: Rs ${vehicle.price}'),
             Text('Condition: ${vehicle.condition}'),
             Text('Negotiable: ${vehicle.negotiable}'),
             // Add more details as needed
@@ -36,4 +36,4 @@ class SinglePage extends StatelessWidget {
       ),
     );
   }
-}
+} 

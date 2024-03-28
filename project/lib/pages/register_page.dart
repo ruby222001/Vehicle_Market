@@ -29,6 +29,8 @@ class _RegisterPageState extends State<RegisterPage> {
     showDialog(context: context, 
     builder: (context) => const Center(
       child: CircularProgressIndicator(),
+
+      
     ),
     );
 
@@ -42,10 +44,11 @@ displayMessageToUser("passwords don't match",context);
     //try creating user
 try{
   //creating user
-  UserCredential? userCredential= await FirebaseAuth.instance.createUserWithEmailAndPassword(
+  UserCredential userCredential= await FirebaseAuth.instance.createUserWithEmailAndPassword(
     email: emailController.text, 
     password: passwordController.text,
     );
+    
     //pop loading circle
     // ignore: use_build_context_synchronously
     Navigator.pop(context);

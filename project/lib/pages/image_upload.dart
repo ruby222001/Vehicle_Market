@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:project/pages/fill_Details.dart';
+import 'package:project/pages/filldetails.dart';
 
 class ImageUp extends StatefulWidget {
   const ImageUp({Key? key}) : super(key: key);
@@ -78,7 +78,7 @@ class _ImageUpState extends State<ImageUp> {
             child: const Text('Upload File'),
           ),
           ElevatedButton(
-            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> const FillDetails())),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>  FillDetails())),
             child: const Text('Next'),
           ),
           buildProgress(),
