@@ -35,6 +35,7 @@ class _ImageUpState extends State<ImageUp> {
       imageUrl = urlDownload;
       uploadTask = null;
     });
+    
   }
 
   Future<void> selectFile() async {
@@ -62,20 +63,24 @@ class _ImageUpState extends State<ImageUp> {
             Expanded(
               child: Container(
                 color: Colors.blue[100],
-                height: 10,
+                height: 5,
                 child: Center(
                   child: Text(pickedFile!.name),
                   
                 ),
               ),
             ),
-          ElevatedButton(
-            onPressed: selectFile,
-            child: const Text('Select File'),
-          ),
-          ElevatedButton(
-            onPressed: uploadFile,
-            child: const Text('Upload File'),
+          Row(
+            children: [
+              ElevatedButton(
+                onPressed: selectFile,
+                child: const Text('Select File'),
+              ),
+              ElevatedButton(
+                onPressed: uploadFile,
+                child: const Text('Upload File'),
+              ),
+            ],
           ),
           ElevatedButton(
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>  FillDetails())),
