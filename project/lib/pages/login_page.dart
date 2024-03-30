@@ -1,8 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:project/auth/google_sign_in.dart';
 import 'package:project/components/my_button.dart';
 import 'package:project/components/my_textfield.dart';
+import 'package:project/components/square_title.dart';
 import 'package:project/models/helper_functions.dart';
+import 'package:project/pages/forgot_password.dart';
 class LoginPage extends StatefulWidget {
   final void Function()? onTap;
   const  LoginPage({super.key,  this.onTap});
@@ -85,15 +88,30 @@ on FirebaseAuthException catch(e){
          const SizedBox(height: 10,),
 
           //forgot password
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text("Forgot Password?",
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.inversePrimary,
-              ),),
-            ],
-          ),
+         Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const Forgotpasswordpage();
+                            },
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Forgot Password?',
+                        style: TextStyle(color: Colors.grey[600]),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
                   const SizedBox(height: 25,),
 MyButton(
   onTap: loginUser,
@@ -116,7 +134,14 @@ MyButton(
      ),
    ],
  ),
- 
+ Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: [
+SquareTile(onTap: () => AuthService().signInWithGoogle(),
+ imagePath: 'lib/images/google.png',)
+    
+  ]
+ )
            ],
           ),
         ),

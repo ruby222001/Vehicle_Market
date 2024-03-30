@@ -29,7 +29,7 @@ class _BottomNavigatorState extends State<BottomNavigator> {
      if (_selectedIndex == 1) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => NotificationPage()),
+        MaterialPageRoute(builder: (context) => NotiificationPage()),
       );
      }
       if (_selectedIndex == 2) {

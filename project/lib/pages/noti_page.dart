@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-class NotificationPage extends StatelessWidget {
+class NotiificationPage extends StatelessWidget {
+  const NotiificationPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,3 +15,4 @@ class NotificationPage extends StatelessWidget {
     );
   }
 }
+

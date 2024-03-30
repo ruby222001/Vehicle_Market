@@ -44,7 +44,7 @@ void _saveDataAndNavigate() async {
     );
   } catch (e) {
     print('Error saving data to Firestore: $e');
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
       content: Text('Failed to save data. Please try again.'),
     ));
   }
@@ -55,14 +55,14 @@ void _saveDataAndNavigate() async {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notification'),
+        title: const Text('Notification'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Select Category',
               style: TextStyle(
                 fontSize: 20,
@@ -72,8 +72,8 @@ void _saveDataAndNavigate() async {
 
             // Category dropdown
             Container(
-              margin: EdgeInsets.symmetric(vertical: 10.0),
-              padding: EdgeInsets.symmetric(horizontal: 12.0),
+              margin: const EdgeInsets.symmetric(vertical: 10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
               decoration: BoxDecoration(
                 border: Border.all(
                   color: Colors.grey,
@@ -84,7 +84,7 @@ void _saveDataAndNavigate() async {
               child: DropdownButton<String>(
                 value: dropdownValue,
                 isExpanded: true,
-                underline: SizedBox(), // Remove the underline
+                underline: const SizedBox(), // Remove the underline
                 onChanged: (String? newValue) {
                   setState(() {
                     dropdownValue = newValue;
@@ -101,7 +101,7 @@ void _saveDataAndNavigate() async {
               ),
             ),
 
-            Text(
+            const Text(
               'Select Brand',
               style: TextStyle(
                 fontSize: 20,
@@ -111,8 +111,8 @@ void _saveDataAndNavigate() async {
 
             // Brand dropdown
             Container(
-              margin: EdgeInsets.symmetric(vertical: 10.0),
-              padding: EdgeInsets.symmetric(horizontal: 12.0),
+              margin: const EdgeInsets.symmetric(vertical: 10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
               decoration: BoxDecoration(
                 border: Border.all(
                   color: Colors.grey,
@@ -123,7 +123,7 @@ void _saveDataAndNavigate() async {
               child: DropdownButton<String>(
                 value: brandValue,
                 isExpanded: true,
-                underline: SizedBox(), // Remove the underline
+                underline: const SizedBox(), // Remove the underline
                 onChanged: (String? newValue) {
                   setState(() {
                     brandValue = newValue;
@@ -140,13 +140,13 @@ void _saveDataAndNavigate() async {
               ),
             ),
 
-            Text(
+            const Text(
               'Description',
               style: TextStyle(
                 fontSize: 20,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
@@ -160,7 +160,7 @@ void _saveDataAndNavigate() async {
             ),
             ElevatedButton(
               onPressed: _saveDataAndNavigate,
-              child: Text('Next'),
+              child: const Text('Next'),
             ),
           ],
         ),

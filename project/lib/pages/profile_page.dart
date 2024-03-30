@@ -18,14 +18,14 @@ Future<void> editField(String field) async{
       bottomNavigationBar: const BottomNavigator(),
       body: ListView(
         children: [
-          Icon(
+          const Icon(
             Icons.person,
             size: 72,
           ),
           Text(
             currentUser.email!,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.grey),
+            style: const TextStyle(color: Colors.grey),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 25.0),

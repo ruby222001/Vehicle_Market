@@ -20,7 +20,7 @@ class _ImageUpState extends State<ImageUp> {
   Future<void> uploadFile() async {
     if (pickedFile == null) return;
 
-    final path = 'files/${pickedFile!.name}';
+    final path = 'files/ ${pickedFile!.name}';
     final file = File(pickedFile!.path!);
     final ref = FirebaseStorage.instance.ref().child(path);
 
