@@ -19,7 +19,7 @@ dependencies:
   path: any
   image_picker: any
   google_sign_in:
-  custom_pop_up_menu:
+  
   provider: 
 
 dev_dependencies:

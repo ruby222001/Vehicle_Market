@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:project/pages/image_upload.dart';
+import 'package:project/pages/home_page.dart';
 
 class FillDetails extends StatefulWidget {
   FillDetails({Key? key}) : super(key: key);
@@ -17,39 +18,6 @@ class _FillDetailsState extends State<FillDetails> {
 
   String? dropdownValue;
   String? brandValue;
-void _saveDataAndNavigate() async {
-  // Check if both dropdowns are selected
-  if (dropdownValue == null || brandValue == null) {
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-      content: Text('Please select both Category and Brand.'),
-    ));
-    return;
-  }
-
-  try {
-    // Save data to Firestore
-    print('Saving data to Firestore...');
-    await FirebaseFirestore.instance.collection('details').add({
-      'category': dropdownValue,
-      'brand': brandValue,
-      'description': titleController.text,
-    });
-
-    print('Data saved to Firestore successfully.');
-
-    // Navigate to the next page
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const ImageUp()),
-    );
-  } catch (e) {
-    print('Error saving data to Firestore: $e');
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-      content: Text('Failed to save data. Please try again.'),
-    ));
-  }
-}
-
 
   @override
   Widget build(BuildContext context) {
@@ -159,7 +127,36 @@ void _saveDataAndNavigate() async {
               ),
             ),
             ElevatedButton(
-              onPressed: _saveDataAndNavigate,
+              onPressed: () {
+                // Check if both dropdowns are selected
+                if (dropdownValue == null || brandValue == null) {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text('Please select both Category and Brand.'),
+                  ));
+                  return;
+                }
+
+                // Save data to Firestore
+                CollectionReference collRef = FirebaseFirestore.instance.collection('Product');
+                collRef.add({
+                  'category': dropdownValue,
+                  'brand': brandValue,
+                  'description': titleController.text,
+                }).then((value) {
+                  print('Data added to Firestore with ID: ${value.id}');
+                  
+                  // Navigate to the home page
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage()), // Replace HomePage with your actual home page
+                  );
+                }).catchError((error) {
+                  print('Failed to add data to Firestore: $error');
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text('Failed to save data. Please try again.'),
+                  ));
+                });
+              },
               child: const Text('Next'),
             ),
           ],
