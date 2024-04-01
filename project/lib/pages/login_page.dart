@@ -115,7 +115,11 @@ on FirebaseAuthException catch(e){
                   const SizedBox(height: 25,),
 MyButton(
   onTap: loginUser,
- child: const Text("Login"),
+ child: const Text("Login",
+ style: TextStyle(
+   color: Colors.black,
+   fontWeight: FontWeight.bold,
+ )),
  ),
  const SizedBox(height: 20),
  //don't have an account? Register here
@@ -134,14 +138,15 @@ MyButton(
      ),
    ],
  ),
- Row(
-  mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-SquareTile(onTap: () => AuthService().signInWithGoogle(),
- imagePath: 'lib/images/google.png',)
-    
-  ]
- )
+//  Row(
+//   mainAxisAlignment: MainAxisAlignment.center,
+//   children: [
+// SquareTile(onTap: () => AuthService().signInWithGoogle(),
+//  imagePath: 'lib/images/google.png',
+// ),
+//
+//   ],
+//  ),
            ],
           ),
         ),

@@ -83,7 +83,7 @@ try{
               const SizedBox(height: 25),
               //title
               const Text(
-                'M I N I M A L',
+'Vehicle',
                 style: TextStyle(fontSize: 20),
               ),
               const SizedBox(height: 25),
@@ -140,7 +140,12 @@ try{
               ),
               MyButton(
                 onTap: registeruser,
-                child: const Text("Register"),
+                child: const Text("Register",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                ),
               ),
               const SizedBox(height: 20),
               //don't have an account? Register here

@@ -185,7 +185,7 @@ bool isLiked = false;
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           MySliverAppBar(
-            title: const Text('Vehicles'),
+            title: const Text('Vehicle'),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

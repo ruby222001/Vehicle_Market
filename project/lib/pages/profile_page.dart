@@ -40,8 +40,7 @@ Future<void> editField(String field) async{
             text: 'ruby', sectionname: 'username',
           onPressed:()=> editField('username') ,
           ),
-           MyTextBox(text: 'ruby', sectionname: 'username',
-          onPressed:()=> editField('username') ,),
+
         ],
       ),
     );

@@ -21,16 +21,24 @@ class SinglePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(vehicle.image),
+            const SizedBox(height: 10),
+            Text('Description',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
+
+              ),
+            ),
             Text(
               'Brand: ${vehicle.brand}',
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 10),
-            Text('Year: ${vehicle.vdate}'),
+              Text('Year: ${vehicle.vdate}'),
             Text('Price: Rs ${vehicle.price}'),
             Text('Condition: ${vehicle.condition}'),
             Text('Negotiable: ${vehicle.negotiable}'),
-            // Add more details as needed
+
+
           ],
         ),
       ),
